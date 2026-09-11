@@ -1,0 +1,99 @@
+
+.text-custom-gray { color: #3b3531 !important; }
+.bg-custom-gray { background-color: #3b3531 !important; }
+.border-custom-gray { border-color: #3b3531 !important; }
+
+.tracking-widest { letter-spacing: 2px; }
+
+.btn-social {
+    width: 45px; 
+    height: 45px;
+    background-color: #d1d4d8;
+    border: none;
+    color: #111;
+    transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+    background-color: #3b3531; /* Berubah abu-abu gelap saat hover */
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.timeline-diamond {
+    width: 10px;
+    height: 10px;
+    left: -1.85rem; 
+    top: 6px;
+    transform: rotate(45deg); 
+}
+
+.contact-section {
+    min-height: 80vh; 
+}
+
+
+.contact-accent-text {
+    color: #3b3531;
+}
+
+.contact-line {
+    display: inline-block;
+    height: 1px;
+    width: 35px;
+    background-color: #3b3531;
+}
+
+
+.btn-custom-gray {
+    background-color: #3b3531;
+    color: #ffffff !important; 
+    border: none;
+    border-radius: 0; 
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-custom-gray:hover {
+    background-color: #554d47; 
+    transform: translateY(-3px);
+}
+
+.contact-links a {
+    color: #e9ecef; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #ffffff; 
+}
+/* =========================================
+   CONTACT FORM INPUTS
+   ========================================= */
+.custom-input {
+    background-color: rgba(255, 255, 255, 0.05); /* Latar belakang putih sangat transparan */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Garis tepi tipis */
+    color: #ffffff !important; /* Teks berwarna putih saat diketik */
+    border-radius: 0; /* Sudut tegas/kotak agar senada dengan tema industrial */
+    font-size: 1rem;
+}
+
+/* Mengubah warna teks panduan (placeholder) */
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Efek saat form sedang diklik/diisi (Focus) */
+.custom-input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #3b3531; /* Warna border mengikuti warna aksen custom-gray Anda */
+    box-shadow: 0 0 0 0.2rem rgba(59, 53, 49, 0.3); /* Bayangan luar (glow) saat fokus */
+}
+textarea.custom-input {
+    resize: none;
+}
+/* Mengaktifkan scroll halus untuk seluruh halaman */
+html {
+    scroll-behavior: smooth;
+}
