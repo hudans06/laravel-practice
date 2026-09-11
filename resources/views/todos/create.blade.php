@@ -4,150 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buat ToDo Baru</title>
+    <!-- Memanggil Bootstrap dari folder public/css -->
+    <link rel="stylesheet" href="{{ asset('Assets/css/bootstrap.min.css') }}">
     <style>
-        /* Pengaturan Dasar senada dengan Halaman Utama */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f3f4f6; 
-            color: #333; 
-            line-height: 1.6; 
-        }
-        
-        /* Wadah Form (Container) */
-        .container { 
-            max-width: 600px; /* Sedikit lebih kecil dari halaman utama agar pas untuk form */
-            margin: 50px auto; 
-            background: #ffffff; 
-            padding: 35px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-        }
-
-        .header-title { 
-            font-size: 24px; 
-            color: #111827; 
-            margin-bottom: 25px; 
-            border-bottom: 2px solid #e5e7eb; 
-            padding-bottom: 15px; 
-        }
-
-        /* Desain Kolom Input */
-        .form-group { margin-bottom: 20px; }
-        .form-group label { 
-            display: block; 
-            font-weight: 600; 
-            color: #374151; 
-            margin-bottom: 8px; 
-        }
-        .form-group input[type="text"], .form-group textarea { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #d1d5db; 
-            border-radius: 6px; 
-            font-size: 15px; 
-            font-family: inherit; 
-            transition: border-color 0.2s, box-shadow 0.2s; 
-        }
-        .form-group input[type="text"]:focus, .form-group textarea:focus { 
-            outline: none; 
-            border-color: #3b82f6; 
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); 
-        }
-
-        /* Desain Area Checkbox */
-        .form-checkbox { 
-            margin-bottom: 30px; 
-            padding: 15px; 
-            background: #f9fafb; 
-            border-radius: 6px; 
-            border: 1px solid #e5e7eb; 
-        }
-        .toggle-label { 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            font-weight: 500; 
-            color: #1f2937; 
-            cursor: pointer; 
-        }
-        .toggle-label input[type="checkbox"] { 
-            width: 18px; 
-            height: 18px; 
-            cursor: pointer; 
-        }
-        .help-text { 
-            display: block; 
-            margin-top: 6px; 
-            font-size: 13px; 
-            color: #6b7280; 
-            margin-left: 28px; /* Sejajar dengan teks label */
-        }
-
-        /* Desain Baris Tombol */
-        .form-actions { 
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-            border-top: 1px solid #e5e7eb; 
-            padding-top: 20px; 
-        }
-        .btn-primary { 
-            background-color: #3b82f6; 
-            color: #fff; 
-            border: none; 
-            padding: 10px 24px; 
-            border-radius: 6px; 
-            font-weight: 600; 
-            font-size: 15px; 
-            cursor: pointer; 
-            transition: background 0.2s; 
-        }
-        .btn-primary:hover { background-color: #2563eb; }
-        
-        .btn-secondary { 
-            color: #4b5563; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 15px; 
-            transition: color 0.2s; 
-        }
-        .btn-secondary:hover { 
-            color: #111827; 
-            text-decoration: underline; 
-        }
+        body { background-color: #f8f9fa; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="header-title">Buat ToDo Baru</h1>
-        
-        <form action="/store" method="POST">
-            @csrf 
-            
-            <div class="form-group">
-                <label for="judul">Judul ToDo</label>
-                <input type="text" id="judul" name="judul" required placeholder="Contoh: Belajar Logika PLC">
-            </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="h4 border-bottom pb-3 mb-4 font-weight-bold">Buat ToDo Baru</h2>
+                        
+                        <form action="/store" method="POST">
+                            @csrf 
+                            
+                            <div class="form-group">
+                                <label for="judul" class="font-weight-bold text-dark">Judul ToDo</label>
+                                <input type="text" class="form-control" id="judul" name="judul" required placeholder="Contoh: Belajar Logika PLC">
+                            </div>
 
-            <div class="form-group">
-                <label for="keterangan">Keterangan</label>
-                <textarea id="keterangan" name="keterangan" rows="4" placeholder="Detail pekerjaan..."></textarea>
-            </div>
+                            <div class="form-group">
+                                <label for="keterangan" class="font-weight-bold text-dark">Keterangan</label>
+                                <textarea class="form-control" id="keterangan" name="keterangan" rows="4" placeholder="Detail pekerjaan..."></textarea>
+                            </div>
 
-            <div class="form-checkbox">
-                <label class="toggle-label">
-                    <input type="checkbox" name="is_done" value="1"> 
-                    Tandai sudah selesai
-                </label>
-                <small class="help-text">*Biarkan kotak kosong jika tugas belum selesai</small>
-            </div>
+                            <div class="bg-light p-3 border rounded mb-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="is_done" name="is_done" value="1">
+                                    <label class="custom-control-label font-weight-bold text-dark" for="is_done">Tandai sudah selesai</label>
+                                </div>
+                                <small class="text-muted d-block mt-1 pl-4">*Biarkan kotak kosong jika tugas belum selesai</small>
+                            </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn-primary">Simpan ToDo</button>
-                <a href="/" class="btn-secondary">Batal</a>
+                            <div class="pt-2 border-top border-light">
+                                <button type="submit" class="btn btn-primary px-4 font-weight-bold">Simpan ToDo</button>
+                                <a href="/" class="btn btn-link text-secondary font-weight-bold ml-2">Batal</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 </html>
